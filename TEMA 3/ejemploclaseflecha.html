@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var gato1 = {
+            vidas:9,
+            saltos: () => {
+                this.vidas--;
+                console.log("Gato1: "+this.vidas);
+
+            }
+        }
+        gato1.saltos();
+        var gato2 = {
+            vidas:9,
+            saltos: function () {
+                this.vidas--;
+                console.log("Gato2: "+this.vidas);
+            }
+        }
+        gato2.saltos();
+        console.log("Array original");
+var miarray= [1,2,3,4,5,6,7,8,9];
+miarray.forEach(e => {
+    console.log(e);
+});
+console.log("1º sustitucion");
+miarray.copyWithin(5,0,7);
+miarray.forEach(e => {
+    console.log(e);
+});
+console.log("2º sustitucion");
+miarray.copyWithin(2,0,7);
+miarray.forEach(e => {
+    console.log(e);
+});
+console.log("array fill");
+miarray.fill("O", 1,4);
+miarray.forEach(e => {
+    console.log(e);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+       function Reloj(h,m,s) {
+        this.hora=h;
+        this.minuto=m;
+        this.segundo=s;
+            
+        this.setHora= function (h,m,s) {
+            if (arguments.length==3) {
+                 this.hora=h;
+                this.minuto=m;
+                this.segundo=s;
+            } else {
+                if (arguments.length==1) {
+                     this.hora=h;
+                }
+             }
+            };
+        this.mostrarHora= function (){
+            window.alert(this.hora+" : "+this.minuto+" : "+this.segundo);
+        }}
+
+        var miReloj1= new Reloj(13,30,20);
+        var miReloj2= new Reloj(0,24,9);
+        miReloj1.mostrarHora();
+        miReloj2.mostrarHora();
+        miReloj1.setHora(23);
+        miReloj2.setHora(8,30,39);
+        miReloj1.mostrarHora();
+        miReloj2.mostrarHora();
+    </script>
+</body>
+</html>

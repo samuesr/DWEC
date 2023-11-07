@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // window.alert("Introduczca un numero entero positivo: ",0);
+         let num//=window.prompt("Introduczca un numero entero positivo: ",0);
+         let suma=0;
+         do {num=window.prompt("Introduczca un numero entero positivo: ",0);
+             
+         } while (parseInt(num) < 0 || parseInt(num)!= num || isNaN(parseInt(num)));
+ 
+ 
+ 
+         document.write("<br>El valor introducido es: "+num+"<table border='1px solid black'>");
+         
+         for (let index = 0; index < num; index++) {
+            if (index%2==0) {
+             document.write("<tr><td>"+index+"</td></tr>");
+             suma+=index;
+            } 
+             
+         }
+ document.write("</table><br>La suma final de los numeros pares es:"+suma);
+ 
+ /**
+  * UN programa que pide dos valores, tienen que ser numericos, el primero es un nu8mero y el segundo va a ser la base, te tiene que decir si el numero se puede convertir a es baseej, si el primer valor es af en base 2 tine
+  * que indicar que no se puede, con base 2, si se puede con base 16;
+  * 
+ */
+ 
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

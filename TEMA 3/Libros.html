@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--titulo autor y tema, m ostrar 2
+        preguntar al usuario cuantos numeros quiere dar de alta, si es 0 termina, si es mayor crerar tantas intrancias como libros quiera el usuariao,
+    para cada libro preguntasr cada una de los atr.
+Donde se guarda?-->
+<script type="text/javascript">
+let tamaño;
+let biblioteca=Array();
+do {
+    tamaño=window.prompt("Cuantos libros quieres en tu biblioteca?",0);
+} while (isNaN(parseInt(tamaño)) || parseInt(tamaño)<0 || parseInt(tamaño)!=tamaño);
+
+for (let index = 0; index < tamaño; index++) {
+    let titulo=window.prompt("Titulo?");
+    let autor=window.prompt("Autor?");
+    let tema=window.prompt("Tema?");
+
+    
+}
+
+    function Libro(titulo, autor, tema) {
+        this.titulo=titulo;
+        this.autor=autor;
+        this.tema=tema;
+        this.mostrarLibro=function (){
+                window.alert(this.titulo+" : "+this.autor+", "+this.tema);
+        }
+    }
+    var libro1= new Libro ("Up","Disney","aventuras");
+    var libro2= new Libro ("Cenicienta", "Perrault","ficción");
+    libro1.mostrarLibro();
+    libro2.mostrarLibro();
+</script>
+    
+</body>
+</html>

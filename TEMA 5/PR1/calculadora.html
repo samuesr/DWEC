@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="calculadora.js"></script>
+    <style>
+        table{
+            background-color: lightblue;
+        }
+        td{
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="POST" name="calculadora">
+        <table>
+             <tr>
+                <td  colspan="5"><input type="text" readonly name="resultado" id="resultado" value=""></td>
+             </tr>
+             <tr>
+                <td ><input class="boton" type="button" value="7" id="7"></td>
+                <td ><input class="boton" type="button" value="8" id="8"></td>
+                <td ><input class="boton"type="button" value="9" id="9"></td>
+                <td  colspan="2"><input class="boton"type="button" value="BORRAR"></td>
+             </tr>
+             <tr>
+                <td ><input class="boton" type="button" value="4" id="4"></td>
+                <td ><input class="boton"type="button" value="5" id="5"></td>
+                <td ><input class="boton"type="button" value="6" id="6"></td>
+                <td ><input class="boton" type="button" value="*" id="*"></td>
+                <td ><input class="boton"type="button" value="/" id="/"></td>
+             </tr>
+             <tr>
+                <td ><input class="boton"type="button" value="1" id="1"></td>
+                <td ><input class="boton" type="button" value="2" id="2"></td>
+                <td ><input class="boton" type="button" value="3" id="3"></td>
+                <td ><input class="boton"type="button" value="+" id="+"></td>
+                <td ><input class="boton"type="button" value="-" id="-"></td>
+             </tr>
+             <tr>
+                <td ><input class="boton"type="button" value="0" id="0"></td>
+                <td ><input class="boton"type="button" value="." id="."></td>
+                <td ><input class="boton"type="button" value="EXE" id="EXE"></td>
+                <td ><input class="boton" type="button" value="^" id="^"></td>
+                <td ><input class="boton"type="button" value="MOD" id="MOD"></td>
+             </tr>
+        </table>
+       
+    </form>
+</body>
+</html>

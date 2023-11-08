@@ -7,7 +7,18 @@ function iniciar(){
 //en los form no usar el mismo name e id, da problemas.
 //NO usar required, evitaría el lanzamiento de la validacion.
 //introducir cp de numeros, que anula las teclas que no son numeros, tiene que tener una longitud de 5; 
+
+document.getElementById('id_check').addEventListener('click',validaCheck);
+let aux= document.getElementById('id_select');
+console.log(aux.length);
+document.getElementById('consulta_id').addEventListener('click',queOpcion);
+document.getElementById('añade_id').addEventListener('click',añadeOpcion);
+document.getElementById('introduce_id').addEventListener('click',introduceOpcion);
+document.getElementById('elimina_id').addEventListener('click',eliminaOpcion);
+
 }
+
+
 function solonumero(evento){
     if (isNaN(evento.key)||evento.key==" ") {
         evento.preventDefault();
@@ -35,4 +46,37 @@ if (cp.length!=5) {
 }
 
     this.submit();
+}
+function validaCheck() {
+    document.formulario.enviar.disabled= !document.formulario.enviar.disabled;
+    //return campoCondiciones.checked;
+}
+function queOpcion(){
+    let array=document.getElementById('id_select').options;
+    let i=document.getElementById('id_select').selectedIndex;
+   console.log(array[i].value);
+   console.log(array[i].text);
+}
+function añadeOpcion(){
+    var opt = new Option ('deptorte','opcion4',false,true);
+    document.getElementById('id_select').options[document.getElementById('id_select').options.length]=opt;
+    //eliminar con array.remove(posicioni en array.remove);
+}
+function introduceOpcion(){
+    let pos=document.getElementById('id_select').options.length;
+    let name=document.getElementById('id_1text').value;
+    var opt = new Option (name,'opcion'+pos,false,true);
+    document.getElementById('id_select').options[document.getElementById('id_select').options.length]=opt;
+}
+
+function eliminaOpcion(){
+    let num=document.getElementById('id_2text').value;
+    let pos=document.getElementById('id_select').options.length-1;
+   if(isNaN(num)|| parseInt(num)!=num|| 0<parseInt(num)>pos) {
+    window.alert('numero incorrecto');
+   }else{
+    document.getElementById('id_select').options.remove(num);
+   }
+
+
 }

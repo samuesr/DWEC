@@ -64,19 +64,18 @@ function añadeOpcion(){
 }
 function introduceOpcion(){
     let pos=document.getElementById('id_select').options.length;
-    let name=document.getElementById('id_1text').value;
+    let name=document.getElementById('id_introduce_t').value;
     var opt = new Option (name,'opcion'+pos,false,true);
     document.getElementById('id_select').options[document.getElementById('id_select').options.length]=opt;
 }
 
 function eliminaOpcion(){
-    let num=document.getElementById('id_2text').value;
+    let num=document.getElementById('id_elimina_t').value;
     let pos=document.getElementById('id_select').options.length-1;
    if(isNaN(num)|| parseInt(num)!=num|| 0<parseInt(num)>pos) {
     window.alert('numero incorrecto');
    }else{
     document.getElementById('id_select').options.remove(num);
    }
-
 
 }

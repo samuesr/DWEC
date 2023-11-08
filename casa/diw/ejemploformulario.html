@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>RESERVA DE HOTELES</h1>
+    <fieldset>
+        <legend>FORMULARIO DE RESERVA </legend><br>
+        <form action="recepcion.html" method="post" enctype="multipart/form-data" >
+            <table cellpadding=5 width=100%>
+                <tr><td colspan="2"><strong>>Paso 1. Identificaci&oacute;n</strong></td></tr>
+                <tr>
+                    <td><fieldset>
+                        <legend>Datos del cliente</legend><br>
+                        <label for="mail">Correo electr&oacute;nico</label><br>
+                        <input type="email" id="mail" size="30" maxlength="20"><br>
+                        <label for="password">Contrase&ntilde;a</label>
+                        <input type="password" id="pass" size="30" maxlength="20">
+                        (Longitud m&iacute;nima 6 caracteres)
+                    </fieldset>
+                    </td>
+                    <td width="50%">
+                        <fieldset>
+                            <legend>Datos bancarios</legend><br>
+                            <label for="identidad">Nombre de la entidad</label><br>
+                            <input type="text" id="entidad" size="40"><br>
+                            <label for="num">Número de cuenta</label><br>
+                            <input type="text" id="num" size="40"><br>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr><td colspan="2"><strong>>Paso 2. Datos de la Reserva</strong></td></tr>
+                <tr>
+                    <td>
+                        <fieldset>
+                            <legend>Datos de la habitaci&oacute;n</legend><br>
+                            <select id="habitacion" name="habitacion" multiple="si" size="7">
+                                <optgroup label="Habitaciones">
+                                    <option value="H001" selected="selected">H001 Habitaci&oacute;n individual</option>
+                                    <option value="H002">H002 Habitaci&oacute;n Doble</option>
+                                    <option value="H003">H003 Habitaci&oacute;n Deluxe</option>
+                                </optgroup>
+                                <optgroup label="Extras">
+                                    <option value="EX001" selected="selected">EX001 Parking</option>
+                                    <option value="EX002">EX002 Wifi</option>
+                                    <option value="EX002">EX002 Spa</option>
+                                    <option value="EX002">EX002 Gimnasio</option>
+                                </optgroup>
+                            </select>
+                        </fieldset>
+                    </td>
+                    <td><fieldset>
+                        <legend>Informaci&oacute;n de inter&eacute;s</legend><br>
+                        Otras peticiones<br>
+                        <textarea rows="6" cols="60">Escriba sus comentarios</textarea>
+                        <input type="checkbox" id="publi" value="si" checked>
+                        <label for="publi"> Acepto recibir informaci&oacute;n publicitaria</label>
+                    </fieldset></td>
+                </tr>
+                <tr>
+                    <td><fieldset>
+                        <legend>Mativo del viaje</legend><br>
+                        <input type="radio" id="ocio" name="tipo" checked>
+                        <label for="ocio">Ocio/Turismo/Vacaciones</label><br>
+                        <input type="radio" id="trabajo" name="tipo">
+                        <label for="trabajo">Estudio/trabajo</label><br>
+                        <input type="radio" id="familia" name="tipo">
+                        <label for="familia">Familia/Amigos</label>
+                    </fieldset></td>
+                    <td>
+                        <fieldset>
+                            <legend>Regimen de alojamiento</legend><br>
+                            <select name="nivel">
+                                <option>Todo incluido</option>
+                                <option>Pensi&oacute;n completa</option>
+                                <option>Media pensi&oacute;n</option>
+                                <option>Desayuno</option>
+                                <option selected>N/A</option>
+                            </select><br>
+                        </fieldset><br>
+                        <button type="submit" style="width: 130px;">Enviar formulario</button>
+                        <button type="reset" style="width: 130px;">Vaciar formulario</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+</body>
+</html>

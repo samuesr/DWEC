@@ -1,15 +1,5 @@
 document.addEventListener('DOMContentLoaded', finiciar, false);
-
-/*let rg= {'nombre_rg':/^([A-Za-z]+\s?)+$/,
-'edad_rg': /^((\d?\d)|(10\d)|(110))$/,
-'tlf_rg': /^(\+\d{3}\)\d{3}(\.\d{3}){2})$/,
-'cod_post_rg': /^[0-9]{5}$/,
-'direccion_rg':/^[\w\s.\/^_]+$/,
-'localidad_provincia_rg':/^[\D]+$/};
-var indices=[...Object.keys(rg)];
-var indices=[...Object.values(rg)];
-console.log(indices);*/
-
+let alumnos=[];
 class Alumno {
     nombre;
     apellidos;
@@ -19,8 +9,8 @@ class Alumno {
     provincia;
     cp;
     telefono;
-
-    __construct(nombre, apellidos, edad, direccion, localidad, provincia, cp, telefono) {
+    estudios;
+    constructor(nombre, apellidos, edad, direccion, localidad, provincia, cp, telefono, estudios) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.edad = edad;
@@ -29,6 +19,7 @@ class Alumno {
         this.provincia = provincia;
         this.cp = cp;
         this.telefono = telefono;
+        this.estudios = estudios;
     }
 }
 function finiciar() {
@@ -36,80 +27,62 @@ function finiciar() {
     document.getElementById('id_condiciones').addEventListener('click', acepta);
     document.getElementById('visualizar_id').addEventListener('click', visualiza);
     document.getElementById('alta_id').addEventListener('click', alta);
-    /* document.getElementById('').addEventListener('click',);
-     document.getElementById('').addEventListener('click',);
-     document.getElementById('').addEventListener('click',);*/
+    document.getElementById('borrar_id').addEventListener('click',eliminar);
 }
-function limpia() { 
-    /*esta función ejecuta la función reset, si no se encunetra desabilitado el boton de alta, 
-    ejecuta la función acepta que pondría el estado contrario, es decir lo deshabilita*/
+function limpia_restos() { //funcion que elimina los elementos de la anterior validacion;
+    let res_val = document.registro.getElementsByTagName('div'); //selecciono todos los div dentro del fomrulario registro, eliminos restos de etiqueta style en el div(recuadro) y en el texto, y elimino el contenido
+    for (let i = 0; i < res_val.length; i++) {
+        res_val[i].style = '';
+        res_val[i].lastElementChild.style = '';
+        res_val[i].lastElementChild.innerHTML = "";
+    }
+}
+function limpia() {/*esta función ejecuta la función reset, además si no se encuentra desabilitado el boton de alta, 
+    ejecuta la función acepta que pondría el estado contrario, es decir lo deshabilita, elimina tambien los mensajes d eposibles validaciones previas*/
     document.getElementById('id_formulario').reset();
     if (!document.getElementById('alta_id').disabled) {
         acepta();
     }
-    let res_val=document.registro.getElementsByTagName('div'); //selecciono todos los div dentro del fomrulario registro
-    for (let i = 0; i < res_val.length-1; i++) {
-        res_val[i].style='';
-        res_val[i].lastElementChild.style='';
-        res_val[i].lastElementChild.innerHTML="";
-        
-    }
-    document.getElementsByTagName('div').style = '';
-    //document.getElementsByTagName('div').lastElementChild.style='';
-    document.getElementsByTagName('div').lastElementChild.innerHTML="";
-
+    limpia_restos();
 }
-function acepta() {
-    //**Esta función se ejecuta al pulsar el checkbox, la evalua la propiedad disable y devuelve su contrario. */
+function acepta() {//**Esta función se ejecuta al pulsar el checkbox, la evalua la propiedad disable y devuelve su contrario. */
     document.getElementById('alta_id').disabled = !document.getElementById('alta_id').disabled;
 }
-function visualiza() {
-    let visualiza = window.open('visualiza');
-    let tabla = '<table>';
-    array.forEach(element => {
-        tabla += '<tr>';
-        tabla += `<td>${element.nombre}</td><td>${element.apellidos}</td><td>${element.edad}</td><td>${element.direccion}</td><td>${element.localidad}</td><td>${element.provincia}</td><td>${element.cp}</td><td>${element.telefono}</td>`;
-        tabla += '</tr>'
-    });
-    tabla += '</table>';
-    visualiza.document.write(tabla);
-
-}
-function alta() {
-    let info = document.getElementsByClassName('info');  //recojo el contenido de todos los elemntos tipo input que hay que validar
-    let es = true; //genero una variable tipo boolean de comparación
+function alta() {//funcion que valida los datos y genera un objeto alumno que guarda en un array alumnos
+    limpia_restos();//ELimina los mensajes en rojo de un posible intento de validación previo.
+    let info = document.getElementsByClassName('info');  //recojo  de todos los elemntos tipo input que hay que validar
+    let interno = "";//genero una variable que funcione a modo de boolean de comparación
     for (let i = 0; i < info.length; i++) { //recorro el array info, en función de si es tipo text (class=texto) o no (entonces es el select), ejecuto un tipo de validacion u otra;
         let clases = info[i].classList;
         if (clases.contains('texto')) { // si es un input de texto recojo su valor y el valor del atributo name y ejecuto una función de validacion con ambos
             let nombre = info[i].name;
             let valor = info[i].value;
-            es = es && valida_txt(nombre, valor); 
+            interno += valida_txt(nombre, valor);
         }
         else {
-es=es&&true;
+            if (info[i].selectedIndex == 0) { //si el valor seleccionado en el selec es el la opcion por defecto, entra a la generacion de mensaje de error
+                interno = "a";
+                mensaje_error(info[i].name);
+            }
         }
     }
-    if (es) {
+    if (interno == "") { //Si todo es correcto, el valor interno permanecerá como cadena vacía y permitirá la introducción del alumno.
+        let alumno_info = [];
+        for (let i = 0; i < info.length; i++) {
+            alumno_info[i] = info[i].value;
+        }
+        console.log(alumno_info);
+        let [nombre, apellidos, edad, direccion, localidad, provincia, cp, telefono, estudios] = alumno_info;//desestructuro el array en variables, creo el alumno y lo meto en alumnos.
+         let alumno= new Alumno(nombre,apellidos,edad,direccion,localidad,provincia,cp,telefono,estudios);
+        alumnos.push(alumno);
+        limpia();
 
-        
-    
-    document.submit(); }
-
+    }
 }
-
-function valida_txt(nombre, valor) {
-
-    /* let nombre_rg = /^([A-Za-z]+\s?)+$/;
-     let edad_rg = /^((\d?\d)|(10\d)|(110))$/;
-     let tlf_rg = /^(\+\d{3}\)\d{3}(\.\d{3}){2})$/;
-     let cod_post_rg = /^[0-9]{5}$/;
-     let direccion_rg = /^[\w\s.\/^_]+$/;*/
+function valida_txt(nombre, valor) { //funcion que dado un nombre(name del input) y su valor lo valida
     let rg = "";
-
-    switch (nombre) { //segun el valor del nombre (name) selecciono una expresion regular para validar
-        case 'nombre':
-          //  rg = /^([A-Za-z]+\s?)+$/;
-          //  break;
+    switch (nombre) { //segun el valor del nombre (name del input text) selecciono una expresion regular para validar
+        case 'nombre': 
         case 'apellido':
             rg = /^([A-Za-z]+\s?)+$/;
             break;
@@ -117,7 +90,7 @@ function valida_txt(nombre, valor) {
             rg = /^((\d?\d)|(10\d)|(110))$/;
             break;
         case 'telefono':
-            rg = /^(\+\d{3}\)\d{3}(\.\d{3}){2})$/;
+            rg = /^\(\+\d{3}\)\d{3}(\.\d{3}){2}$/;
             break;
         case 'cod_post':
             rg = /^[0-9]{5}$/;
@@ -129,13 +102,29 @@ function valida_txt(nombre, valor) {
             rg = /^[\D]+$/;
             break;
     }
+    let bool = "";
     if (!rg.test(valor)) { //si la validacion es negativa pinta un cuadro al rededor de todo el imput y añade un mensaje en el parrafo que esta al lado del input
-        document.getElementById(nombre + '_id').style = 'border:1px solid red'; 
-         document.getElementById(nombre + '_id').lastElementChild.style='color:red';
-         document.getElementById(nombre + '_id').lastElementChild.innerHTML=nombre+" incorrecto";
-        return false; 
-    } else {
-        return true; 
+        mensaje_error(nombre);
+        bool = "g";
     }
+    return bool;
 }
-
+function mensaje_error(nombre){ //funcion que dado un nombre (name del input genera un mensaje de error)
+    document.getElementById(nombre + '_id').style = 'border:1px solid red';
+    document.getElementById(nombre + '_id').lastElementChild.style = 'color:red';
+    document.getElementById(nombre + '_id').lastElementChild.innerHTML = nombre + " incorrecto";
+}
+function visualiza() { //Abre una ventana llamada visualiza para crear una tabla;
+    let visualiza = window.open("",'visualiza');
+    let tabla = '<table><tr><td>Nombre</td><td>Apellidos</td><td>Edad</td><td>Dirección</td><td>Localidad</td><td>Provincia</td><td>Codigo Postal</td><td>Telefono</td><td>Estudios</td></tr>';
+    alumnos.forEach(element => {
+        tabla += '<tr>';
+        tabla += `<td>${element.nombre}</td><td>${element.apellidos}</td><td>${element.edad}</td><td>${element.direccion}</td><td>${element.localidad}</td><td>${element.provincia}</td><td>${element.cp}</td><td>${element.telefono}</td><td>${element.estudios}</td>`;
+        tabla += '</tr>'
+    });
+    tabla += '</table>';
+    visualiza.document.write(tabla);
+}
+function eliminar() { //Para borrar el array, lo inicializo de nuevo
+    alumnos=[];
+}

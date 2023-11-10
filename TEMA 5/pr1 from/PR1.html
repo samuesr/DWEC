@@ -6,34 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="text/javascript" src="PR1.js"></script>
+    <link type="text/css" rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
-    <form name="registro" method="post" action="" id="id_formulario">
-        <label for="id_nombre">Nombre:<input type="text" name="nombre" id="id_nombre"></label><br><br>
-        <label for="id_apellidos">apellidos:<input type="text" name="apellidos" id="id_apellidos"></label><br><br>
-        <label for="id_edad">edad<input type="text" name="edad" id="id_edad"></label><br><br>
-        <label for="id_direccion">direccion<input type="text" name="direccion" id="id_direccion"></label><br><br>
-        <label for="id_localidad">localidad<input type="text" name="localidad" id="id_localidad"></label><br><br>
-        <label for="id_provincia">provincia<input type="text" name="provincia" id="id_provincia"></label><br><br>
-        <label for="id_cod_post">Codigo Postal:<input type="text" name="cod_post" id="id_cod_post"></label><br><br>
-        <label for="id_telefono">telefono<input type="text" name="telefono" id="id_telefono"></label><br><br>
-        Estudios:<select name="estudios" id="id_estudios">
-            <option value="Ninguno" id="optionid_0">--Selecciona una opción--</option>
-            <option value="Primaria" id="optionid_1">Primaria</option>
-            <option value="ESO" id="optionid_2">ESO</option>
-            <option value="CFG medio" id="optionid_3">CFG medio</option>
-            <option value="CFG superior" id="optionid_4">CFG superior</option>
-            <option value="Grado" id="optionid_5">Grado universitario</option>
-            <option value="Master" id="optionid_6">Master</option>
-            <option value="Doctorado" id="optionid_7">Doctorado</option>
-        </select><br><br>
-        <label for="id_condiciones">Acepto los terminos<input type="checkbox" name="condiciones" id="id_condiciones"></label><br><br>
-        <input type="button" value="alta" id="alta_id" name="alta" disabled>
-        <input type="button" value="limpiar"  id="limpiar_id" name="limpiar">
-        <input type="button" value="visualizar"  id="visualizar_id" name="visualizar">
-        <input type="button" value="borrar"  id="borrar_id" name="borrar">
-    </form>
+    <h1>Alta de alumnos</h1>
+    <div class="container">
+        <form name="registro" method="post" action="" id="id_formulario">
+            <div id="nombre_id">
+                <label for="id_nombre">Nombre: 
+                    <input type="text" class="texto info" name="nombre" id="id_nombre">
+                </label><p></p>
+            </div><br><br>
+            <div id="apellidos_id">
+                <label for="id_apellidos">Apellidos: 
+                    <input type="text" class="texto info" name="apellidos" id="id_apellidos">
+                </label><p></p>
+            </div><br><br>
+            <div id="edad_id">
+                <label for="id_edad">Edad: 
+                    <input type="text" class="texto info" name="edad" id="id_edad">
+                </label><p></p>
+            </div><br><br>
+            <div id="direccion_id">
+                <label for="id_direccion">Direccion: 
+                    <input type="text" class="texto info" name="direccion" id="id_direccion">
+                </label><p></p>
+            </div><br><br>
+            <div id="localidad_id">
+                <label for="id_localidad">Localidad: 
+                    <input type="text" class="texto" name="localidad" id="id_localidad">
+                </label><p></p>
+            </div><br><br>
+            <div id="provincia_id">
+                <label for="id_provincia">Provincia: 
+                    <input type="text" class="texto info" name="provincia" id="id_provincia">
+                </label><p></p>
+            </div><br><br>
+            <div id="cod_post_id">
+                <label for="id_cod_post">Codigo Postal: 
+                    <input type="text" class="texto info" name="cod_post" id="id_cod_post">
+                </label><p></p>
+            </div><br><br>
+            <div id="telefono_id">
+                <label for="id_telefono">Telefono: 
+                    <input type="text" class="texto info" name="telefono" id="id_telefono">
+                </label><p></p>
+            </div><br><br>
+            <div id="estudios_id">
+            Estudios:<select class="info" name="estudios" id="id_estudios">
+                <option value="Ninguno" id="optionid_0">--Selecciona una opción--</option>
+                <option value="Primaria" id="optionid_1">Primaria</option>
+            </label><br><br>
+                <option value="ESO" id="optionid_2">ESO</option>
+                <option value="CFG medio" id="optionid_3">CFG medio</option>
+                <option value="CFG superior" id="optionid_4">CFG superior</option>
+                <option value="Grado" id="optionid_5">Grado universitario</option>
+                <option value="Master" id="optionid_6">Master</option>
+                <option value="Doctorado" id="optionid_7">Doctorado</option>
+            </select></div><br><br>
+            <label for="id_condiciones">Acepto los terminos<input type="checkbox" name="condiciones"
+                    id="id_condiciones"></label><br><br>
+            <input type="button" value="alta" id="alta_id" name="alta" disabled>
+            <input type="button" value="limpiar" id="limpiar_id" name="limpiar">
+            <input type="button" value="visualizar" id="visualizar_id" name="visualizar">
+            <input type="button" value="borrar" id="borrar_id" name="borrar">
+        </form>
+    </div>
 </body>
 
 </html>

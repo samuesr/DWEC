@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', finiciar, false);
 let alumnos=[];
+let visualiza;
 class Alumno {
     nombre;
     apellidos;
@@ -76,7 +77,6 @@ function alta() {//funcion que valida los datos y genera un objeto alumno que gu
          let alumno= new Alumno(nombre,apellidos,edad,direccion,localidad,provincia,cp,telefono,estudios);
         alumnos.push(alumno);
         limpia();
-
     }
 }
 function valida_txt(nombre, valor) { //funcion que dado un nombre(name del input) y su valor lo valida
@@ -115,7 +115,8 @@ function mensaje_error(nombre){ //funcion que dado un nombre (name del input gen
     document.getElementById(nombre + '_id').lastElementChild.innerHTML = nombre + " incorrecto";
 }
 function visualiza() { //Abre una ventana llamada visualiza para crear una tabla;
-    let visualiza = window.open("",'visualiza');
+    if(visualiza.open()){ visualiza.close();}
+    visualiza = window.open("",'visualiza');
     let tabla = '<table><tr><td>Nombre</td><td>Apellidos</td><td>Edad</td><td>Dirección</td><td>Localidad</td><td>Provincia</td><td>Codigo Postal</td><td>Telefono</td><td>Estudios</td></tr>';
     alumnos.forEach(element => {
         tabla += '<tr>';
@@ -126,5 +127,6 @@ function visualiza() { //Abre una ventana llamada visualiza para crear una tabla
     visualiza.document.write(tabla);
 }
 function eliminar() { //Para borrar el array, lo inicializo de nuevo
-    alumnos=[];
+    //alumnos=null; o  while length>0 array.pop
+    while (alumnos.length>0){ alumnos.pop();}
 }

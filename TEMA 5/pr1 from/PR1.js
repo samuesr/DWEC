@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', finiciar, false);
 let alumnos=[];
+//
 class Alumno {
     nombre;
     apellidos;

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', finiciar, false);
 let alumnos=[];
-let visualiza;
+
 class Alumno {
     nombre;
     apellidos;
@@ -115,7 +115,7 @@ function mensaje_error(nombre){ //funcion que dado un nombre (name del input gen
     document.getElementById(nombre + '_id').lastElementChild.innerHTML = nombre + " incorrecto";
 }
 function visualiza() { //Abre una ventana llamada visualiza para crear una tabla;
-    if(visualiza.open()){ visualiza.close();}
+    
     visualiza = window.open("",'visualiza');
     let tabla = '<table><tr><td>Nombre</td><td>Apellidos</td><td>Edad</td><td>Dirección</td><td>Localidad</td><td>Provincia</td><td>Codigo Postal</td><td>Telefono</td><td>Estudios</td></tr>';
     alumnos.forEach(element => {

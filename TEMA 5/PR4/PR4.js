@@ -15,10 +15,12 @@ function iniciar(){
 
 }
 function mostrar() {
-if(this.checked){
     let clase='dep_'+this.name;
-    console.log (clase);
+    console.log(this.checked);
+if(this.checked){
+    //console.log (clase);
     document.getElementsByClassName(clase)[0].style.display='block';
-};
+} else{document.getElementsByClassName(clase)[0].style.display='none';
+//console.log(this.checked);};
 
 }

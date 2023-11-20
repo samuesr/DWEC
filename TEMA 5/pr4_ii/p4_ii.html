@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="text/javascript" src="PR4.js"></script>
+    <title>Document</title><script type="text/javascript" src="p4_ii.js"></script>
     <style>
-        .dep_ordenador_y, .dep_estudios, .dep_marca, .dep_otras {
+        .dep_ordenador, .dep_estudios, .dep_marca, .dep_otras {
             display: none;
+        }
+        .container{
+            background-color: rgba(255,255,255,0.6);
+            width: 80%;
+            border-radius: 20px;
+            box-shadow: 20px 10px 5px rgba(125, 202, 243, 0.8);
+            margin: 20px auto;
+            padding: 20px;
+        }
+        body{
+            background-color: lightblue;
+        }
+        h1{
+            text-align: center;
+            color: whitesmoke;
         }
     </style>
 </head>
-<!--
-    Eqinformatico div class=eq_inform
-    div item  class valida // oculto
-    select name selector_atr  id selector_atr_id
-    radio .rad 
-    texto . info texto //oculto
-
-
--->
 <body>
+    <h1>Cuestionario: Uso del ordenador</h1>
+    <div class="container">
     <form action="" name="form" method="get">
-        <div class="edad">
-            <label for="edad_id">Edad<input type="text" name="edad" id="edad_id" class="info texto"></label>
+        <div id="edad_id">
+            <label for="id_edad">Edad<input type="text" name="edad" id="id_edad" class="texto"></label>
             <p></p>
         </div>
-        <div class="sexo">
+        <div id="sexo_id">
             <p>Seleccione Sexo:</p>
             <label for="radio_H_id">Hombre<input type="radio" class="rad"  name="sexo" value="H" id="radio_H_id"></label>
             <label for="radio_M_id">Mujer<input type="radio" class="rad"  name="sexo" value="M" id="radio_M_id"></label>
             <p></p>
         </div>
-        <div class="estudios_t">
+        <div id="estudios_id">
             <p>Estudios?</p>
-            <label for="estudios_rad_id">Si<input type="radio" class="rad amplia"  name="estudios" id="estudios_rad1_id" value="1"></label>
-            <label for="estudios_rad_id">No<input type="radio" class="rad amplia"  name="estudios" id="estudios_rad0_id" value="0"></label>
+            <label for="estudios_rad1_id">Si<input type="radio" class="amplia"  name="estudios" id="estudios_rad1_id" value="1"></label>
+            <label for="estudios_rad0_id">No<input type="radio" class="amplia"  name="estudios" id="estudios_rad0_id" value="0"></label>
             <p></p>
         </div>
-        <div class="estudios_s dep_estudios">
-            <select name="selector_estudios" id="selector_estudios_id" class="selector info">
+        <div id="selector_estudios_id" class="dep_estudios">
+            <select name="selector_estudios" id="id_selector_estudios" >
                 <option value="Vacio" name="Vacio">--Seleccione una opción--</option>
                 <option value="Primaria" name="Primaria">Primaria</option>
                 <option value="Secundaria" name="Secundaria">Secundaria</option>
@@ -53,17 +59,18 @@
             </select>
             <p></p>
         </div>
-        <div class="ordenador">
+        <div id="ordenador_id">
             <p>Tiene ordenador?</p>
-            <label for="ordenador_y_id">Si:</label><input type="radio" class="rad amplia"  name="ordenador_y" id="ordenador_y1_id"
+            <label for="ordenador_y1_id">Si:</label><input type="radio" class="rad amplia"  name="ordenador" id="ordenador_y1_id"
                 value="1"></label>
-            <label for="ordenador_y_id">No:</label><input type="radio" class="rad amplia"  name="ordenador_y" id="ordenador_y0_id"
+            <label for="ordenador_y0_id">No:</label><input type="radio" class="rad amplia"  name="ordenador" id="ordenador_y0_id"
                 value="0"></label>
             <p></p>
         </div>
-        <div class=" dep_ordenador_y">
+        <div  class="dep_ordenador">
+            <div id="selector_ordenador_id" >
             <p>Tipo ordenador?</p>
-            <select name="selector_ordenador" id="selector_ordenador_id" class="selector info">
+            <select name="selector_ordenador" id="id_selector_ordenador">
                 <option value="Vacio" name="Vacio">--Seleccione una opción--</option>
                 <option value="Portatil" name="Portatil">Portatil</option>
                 <option value="Convertible" name="Convertible">Convertible</option>
@@ -72,9 +79,9 @@
             </select>
             <p></p>
         </div>
-        <div class="antiguedad">
+        <div id="selector_antiguedad_id">
             <p>Años ordenador?</p>
-            <select name="selector_antiguedad" id="selector_antiguedad_id" class="selector info">
+            <select name="selector_antiguedad" id="id_selector_antiguedad">
                 <option value="Vacio" name="Vacio">--Seleccione una opción--</option>
                 <option value="-1" name="-1">Inferior a 1</option>
                 <option value="1-2" name="1-2">Entre 1 y 2 años</option>
@@ -83,17 +90,17 @@
             </select>
             <p></p>
         </div>
-        <div class="valida">
+        <div id="marca_id">
             <p>Marca ordenador?</p>
-            <label for="radio_marca_id">Si<input type="radio" class="rad amplia"  name="marca" value="1" id="radio_marca1_id"></label>
-            <label for="radio_marca_id">No<input type="radio" class="rad amplia"  name="marca" value="0" id="radio_marca0_id"></label>
+            <label for="radio_marca1_id">Si<input type="radio" class="rad amplia"  name="marca" value="1" id="radio_marca1_id"></label>
+            <label for="radio_marca0_id">No<input type="radio" class="rad amplia"  name="marca" value="0" id="radio_marca0_id"></label>
+        <p></p></div>
+        <div id="marca_t_id" class="dep_marca">
+            <label for="id_marca_t">Marca<input type="text" name="marca_t" id="id_marca_t" class="info texto"></label><p></p>
         </div>
-        <div class="valida dep_marca oculto">
-            <label for="marca_id">Marca<input type="text" name="marca" id="marca_id" class="info texto"></label><p></p>
-        </div>
-        <div class="valida">
+        <div id="selector_ram_id">
             <p>Memoria Ram ordenador?</p>
-            <select name="selector_ram" id="selector_ram_id" class="selector info">
+            <select name="selector_ram" id="id_selector_ram" >
                 <option value="Vacio" name="Vacio">--Seleccione una opción--</option>
                 <option value="-4" name="-1">Inferior a 4GB</option>
                 <option value="4-8" name="1-2">Entre 4 y 8 GB</option>
@@ -101,9 +108,9 @@
             </select>
             <p></p>
         </div>
-        <div class="valida">
+        <div id="selector_capacidad_id">
             <p>Disco duro ordenador?</p>
-            <select name="selector_capacidad" id="selector_capacidad_id" class="selector info">
+            <select name="selector_capacidad" id="id_selector_capacidad" >
                 <option value="Vacio" name="Vacio">--Seleccione una opción--</option>
                 <option value="-250" name="-1">Inferior a 250GB</option>
                 <option value="250-500" name="1-2">Entre 250GB y 500GB</option>
@@ -111,9 +118,9 @@
             </select>
             <p></p>
         </div>
-        <div class="valida">
+        <div id="selector_pantalla_id">
             <p>Pantalla ordenador?</p>
-            <select name="selector_pantalla" id="selector_pantalla_id" class="selector info">
+            <select name="selector_pantalla" id="id_selector_pantalla" >
                 <option value="Vacio" name="Vacio">--Seleccione una opción--</option>
                 <option value="13" name="13">13"</option>
                 <option value="15" name="15">15"</option>
@@ -123,9 +130,9 @@
             </select>
             <p></p>
         </div>
-        <div class="valida">
+        <div id="selector_conexion_id">
             <p>Conexion?</p>
-            <select name="selector_conexion" id="selector_conexion_id" class="selector info">
+            <select name="selector_conexion" id="id_selector_conexion" >
                 <option value="Vacio" name="Vacio">--Seleccione una opción--</option>
                 <option value="cable" name="cable">Cable</option>
                 <option value="Fibra" name="Fibra">Fibra</option>
@@ -134,19 +141,19 @@
             </select>
             <p></p>
         </div>
-        <div class="valida">
+        <div id="comparte_id">
             <p>Comparte?</p>
-            <label for="comparte_rad_id">Si<input type="radio" class="rad"  name="comparte" id="comparte_rad1_id" value="1"></label>
-            <label for="comparte_rad_id">No<input type="radio" class="rad"  name="comparte" id="comparte_rad0_id" value="0"></label>
+            <label for="comparte1_id">Si<input type="radio" class="rad"  name="comparte" id="comparte1_id" value="1"></label>
+            <label for="comparte0_id">No<input type="radio" class="rad"  name="comparte" id="comparte0_id" value="0"></label>
             <p></p>
         </div>
-        <div class="valida">
-            <label for="dias_id">Cuantos días?(1-7)<input type="text" name="dias" id="dias_id" class="info texto  oculto"></label>
+        <div id="dias_id">
+            <label for="id_dias">Cuantos días?(1-7)<input type="text" name="dias" id="id_dias" class="info texto  oculto"></label>
             <p></p>
         </div>
-        <div class="valida">
+        <div id="selector_horas_id">
             <p>Horas diarias?</p>
-            <select name="selector_horas" id="selector_horas_id" class="selector info">
+            <select name="selector_horas" id="id_selector_horas" >
                 <option value="Vacio" name="Vacio">--Seleccione una opción--</option>
                 <option value="-1" name="-1">Inferior a 1</option>
                 <option value="1-2" name="1-2">Entre 1 y 2 horas</option>
@@ -155,38 +162,26 @@
             </select>
             <p></p>
         </div>
-        <div class="valida">
+        <div id="chek_id">
             <p>Uso:</p>
             <label for="busqueda_id">busqueda<input type="checkbox" name="busqueda" id="busqueda_id" value="busqueda" class="info check"></label>
             <label for="ofimatica_id">ofimatica<input type="checkbox" name="ofimatica" id="ofimatica_id" value="ofimatica" class="info check"></label>
             <label for="programacion_id">programacion<input type="checkbox" name="programacion" id="programacion_id" value="programacion" class="info check"></label>
             <label for="juegos_id">juegos<input type="checkbox" name="juegos" id="juegos_id" value="juegos" class="info check"></label>
             <label for="otras_id">otras<input type="checkbox" name="otras" id="otras_id" value="otras" class="info check amplia"></label>
+           <!--<label for=""><input type="checkbox" name="" id="" value="" class="info check oculto"></label>
             <label for=""><input type="checkbox" name="" id="" value="" class="info check oculto"></label>
-            <label for=""><input type="checkbox" name="" id="" value="" class="info check oculto"></label>
-            <label for=""><input type="checkbox" name="" id="" value="" class="info check oculto"></label>
+            <label for=""><input type="checkbox" name="" id="" value="" class="info check oculto"></label>-->
             <p></p>
         </div>
-        <div class="valida dep_otras oculto">
-            <label for="otros_id">Otros:<input type="text" name="otros" id="otros_id" class="info texto dep_otras"></label>
+        <div id="otros_id" class="dep_otras">
+            <label for="id_otros">Otros:<input type="text" name="otros" id="id_otros" class="info texto"></label>
             <p></p>
         </div>
+    <p></p></div>
+        <input type="button" name="valida" id="valida_id" value="Enviar">
+        <input type="button" name="limpiar" id="limpiar_id" value="Limpiar">
+        </form>
     </div>
-    <input type="button" name="valida" id="valida_id" value="valida">
-    </form>
 </body>
-
 </html>
-<!--
-<select name="selector_ordenador" id="selector_ordenador_id" class="selector oculto">
-    <option value="Vacio" name="Vacio">--Seleccione una opción--</option>
-    <option value="" name=""></option>
-    <option value="" name=""></option>
-    <option value="" name=""></option>
-    <option value="" name=""></option>
-</select>
-<label for="marca_id">Estudios?<input type="text" name="marca" id="marca_id" class="info texto  oculto"></label>
-<label for=""><input type="text" name="" id="" class="info texto oculto"></label>
-<label for=""><input type="text" name="" id="" class="info texto oculto"></label>
-<label for=""><input type="text" name="" id="" class="info texto oculto"></label>
-<label for=""><input type="text" name="" id="" class="info texto oculto"></label>-->

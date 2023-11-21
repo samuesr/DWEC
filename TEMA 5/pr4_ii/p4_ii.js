@@ -1,14 +1,13 @@
 document.addEventListener('DOMContentLoaded', iniciar, false);
-
+let ventana;
 function iniciar() {
     document.getElementById('valida_id').addEventListener('click', valida);
     document.getElementById('limpiar_id').addEventListener('click', limpiar);
     for (let j = 0; j < document.getElementsByClassName('amplia').length; j++) {
         document.getElementsByClassName('amplia')[j].addEventListener('click', mostrar);
     }
-    document.form.getElementById('id_selector_marca').addEventListener('click',genSlctmod);
-    document.form.getElementById('id_selector_modelo').addEventListener('click',genSlctvel);
-    document.form.getElementById('id_selector_velocidad').addEventListener('click',genSlct);
+    document.getElementById('id_selector_marca').addEventListener('change',genSlctmod);
+    document.getElementById('id_selector_modelo').addEventListener('change',genSlctvel);
 }
 function valida() {
     let info = document.form.getElementsByTagName('input');
@@ -143,22 +142,53 @@ function mostrar() {
     }
 }
 function genSlctmod() {
-    
+    let opciones;
+    switch (this.selectedIndex) {
+        case 0:
+            opciones='<option value="Vacio" name="Vacio">--Seleccione una opción--</option>';
+            break;
+            case 1:
+                opciones='<option value="Vacio" name="Vacio">--Seleccione una opción--</option><option value="R5" name="R5">Rayzen 5 3600</option><option value="R7" name="R7">Rayzen 7 3800x</option>';
+            break;
+            case 2:
+                opciones='<option value="Vacio" name="Vacio">--Seleccione una opción--</option><option value="Ci3" name="Ci3">Core i3</option><option value="Ci5" name="Ci5">Core i5</option><option value="Ci7" name="Ci7">Core i7</option>';
+            break;
+        default:
+            break;
+    }
+    document.getElementById('id_selector_modelo').innerHTML=opciones;
+    genSlctvel();
 }
 function genSlctvel() {
-    
+    let pos_mod=document.getElementById('id_selector_modelo').selectedIndex;
+    let pos_mar=document.getElementById('id_selector_marca').selectedIndex;
+    let opciones;
+    switch (true) {
+        case (pos_mod==0):
+            opciones='<option value="Vacio" name="Vacio">--Seleccione una opción--</option>';
+            break;
+            case (pos_mod==1&&pos_mar==1):
+                opciones='<option value="Vacio" name="Vacio">--Seleccione una opción--</option><option value="4.2" name="4.2">4.2Ghz</option><option value="4.4" name="4.4">4.4Ghz</option>';
+            break;
+            case (pos_mod==2&&pos_mar==1):
+                opciones='<option value="Vacio" name="Vacio">--Seleccione una opción--</option><option value="3.9" name="3.9">3.9Ghz</option><option value="4.5" name="4.5">4.5Ghz</option>';
+            break;
+            case (pos_mod==1&&pos_mar==2):
+                opciones='<option value="Vacio" name="Vacio">--Seleccione una opción--</option><option value="2.1" name="2.1">2.1Ghz</option><option value="2.3" name="2.3">2.3Ghz</option>';;
+            break;
+            case (pos_mod==2&&pos_mar==2):
+                opciones='<option value="Vacio" name="Vacio">--Seleccione una opción--</option><option value="2.5" name="2.5">2.5Ghz</option><option value="3.0" name="3.0">3.0Ghz</option><option value="3.6" name="3.6">3.6Ghz</option>';;
+            break;
+            case (pos_mod==3):
+                opciones='<option value="Vacio" name="Vacio">--Seleccione una opción--</option><option value="3.0" name="3.0">3.0Ghz</option><option value="3.6" name="3.6">3.6Ghz</option><option value="4.3" name="4.3">4.3Ghz</option>';
+            break;
+        default:
+            break;
+    }
+    document.getElementById('id_selector_velocidad').innerHTML=opciones;
 }
-/*
-let nombre = "";
-let edad_rg = /d/;
-let divid = nombre + "_id";
-let valorid = "id_nombre"
-if (!edad_rg.test(document.getElementById('id_edad').value)) {
-    let mal = document.getElementById('edad_id');
-    mal.style = 'border:1px solid red';
-    console.log(mal.lastElementChild);
-    mal.lastElementChild.innerHTML = "Incorrecto";
-    mal.lastElementChild.style = 'color:red; display:inline';
-    es_aux = false;
-} es = es_aux && es;
-}*/
+function visualiza(){
+    ventana=window.open('','tabla');
+    let tabla='<table id="id_tabla"></table>'
+
+}

@@ -1,5 +1,4 @@
 
-       
         function Libro(nombre,autor,tema) {
             this.nombre=nombre;
             this.autor=autor;

@@ -1,0 +1,4 @@
+Fourmulario, un cpao de texto y un boton
+A continucación una lista, está vacía.
+Al ir añadiendo elementos en el campo de texto, cuando se pulsa el boton va a añadir el contido al final de la lista.
+Validación( que contenga algo y que no esté en la lista). Recuperar el contenido con node.value.

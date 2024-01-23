@@ -3,7 +3,7 @@ header('Content-Type: text/txt; charset=utf-8');
 $server="localhost";
 $BD="ajax6";
 $user="root";
-$password="";
+$password="root";
 
 //Creamos la conexión
 $conexion = mysqli_connect($server,$user,$password,$BD) or die("error en la conexión");

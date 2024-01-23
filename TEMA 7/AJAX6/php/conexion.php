@@ -7,7 +7,7 @@
     
         public function conectar() {
             try {
-                $this ->_conn = new PDO("mysql:host=localhost;dbname=spain","root","");
+                $this ->_conn = new PDO("mysql:host=localhost;dbname=spain","root","root");
             } catch (PDOException $e){
                 echo "Error ".$e->getMessage();
             }

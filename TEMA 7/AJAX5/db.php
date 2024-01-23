@@ -1,9 +1,9 @@
 <?php //este archivo no hay que aprenderselo de memoria
 
 define("DB_HOST","localhost");
-define ("DB_NAME","bd_notas");
+define ("DB_NAME","ajax5");
 define("DB_USER","root");
-define("DB_PASSWORD", "");
+define("DB_PASSWORD", "root");
 
 class db {
     private $host;
@@ -32,6 +32,3 @@ class db {
 }
 db::concectar();
 ?>
-<!--//realizar un meetodo o funcion que reciba de parametro una nota, 
-y borre todas las notas que contenga esa nota, devolviendo el numero de filas borradas. 
-Los parámetros se mantendran en un array asociativo que se mantendran en la consulta--->

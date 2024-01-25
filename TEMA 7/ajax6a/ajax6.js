@@ -18,6 +18,7 @@ function LoadDoc(pag,cFunction) {
 }
 function mostrar(xhttp){
     var resultado=document.getElementById('id_resultado');
+    console.log(xhttp.responseText);
     var pelicula= JSON.parse(xhttp.responseText);
     var salida= '<table><tr><th>Codigo pelicula:</th><th>Nacionalidad:</th><th>Prodcutora:</th><th>Codigo D:</th></tr>';
     for (let i = 0; i < pelicula.length; i++) {

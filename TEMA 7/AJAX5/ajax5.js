@@ -17,8 +17,9 @@ function loadDoc(url,cFunction) {
    xhttp.send();
 }
 function mostar(xhttp) {
+    console.log('en mostar');
     var resultado= document.getElementById('resultado_id');
     var es=JSON.parse(xhttp.responseText);
     console.log(es);
-    resultado.innerHTML=es.disponible;
+    resultado.innerHTML=es[0].disponible;
 }

@@ -1,21 +1,28 @@
 <!--Usar POST recoger usuario contraseña mail terlefono y fecha de registro , los datos del form estar validados, fecha de registro con now, usar un INSETR, el idd con autoincremento-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   <!-- <script type="text/javascript" src="js/P4.js"></script>-->
+    <script type="text/javascript" src="js/P4.js"></script>
+    <link href="./css/P4.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
+    <h1>Introducción de datos de Usuario</h1>
+    <div id="formulario_id">
     <form action="" method="POST" id="form_id">
-        <input type="text" name="usuario" id="usuario_id">
-        <input type="text" name="pass" id="pass_id">
-        <input type="text" name="email" id="email_id">
-        <input type="text" name="telefon" id="telefon_id">
-        <input type="submit" value="enviar" name="enviar" id="enviar_id">
+        <div class="error"><p>Usuario:</p><input type="text" name="usuario" id="usuario_id" placeholder="Nombre de usuario"></div>
+        <div class="error"><p>Contraseña:</p><input type="text" name="pass" id="pass_id" placeholder="Contraseña"></div>
+        <div class="error"><p>Email:</p><input type="text" name="email" id="email_id" placeholder="ej: pepe@pepe.com"></div>
+        <div class="error"><p>Telefono:</p><input type="text" name="telefon" id="telefon_id" placeholder="ej: 987654321"></div>
+        <div><input type="submit" value="Registrar" name="enviar" id="enviar_id"></div>
     </form>
+</div>
     <div id="resultado_id"></div>
 
 </body>
+
 </html>

@@ -5,19 +5,19 @@ function iniciar() {
 }
 function enviar(evento) {
     evento.preventDefault();
+  limpiarastros();
     let es=true;
-    var inputs= document.getElementById('form_id').childNodes;
-    console.log(inputs);
+    var inputs= document.getElementsByTagName('input');
     for (let i = 0; i < inputs.length; i++) {
-       let es_aux= depura(inputs[i].value,inputs[i].name,inputs[i].id);
+       let es_aux= depura(inputs[i].id);
        es=es&&es_aux;
     }
-    var pag= 'P4.php';
-    datos='usuario='+inputs[0].value+'&pass='+inputs[1].value+'&email='+inputs[2].value+'&telefon='+inputs[3].value+"&nocache=" + Math.random();;
-    loadDoc(pag,datos,funcionD);
+    var pag= './php/P4.php';
+   if (es==true) {
+     var datos=`usuario=${inputs[0].value}&pass=${inputs[1].value}&email=${inputs[2].value}&telefon=${inputs[3].value}&nocache=`+ Math.random();
+    loadDoc(pag,datos,mostrar);
+   }
 
-
-    
 }
 function clean(node) {
     for(var n = 0; n < node.childNodes.length; n ++)
@@ -37,8 +37,13 @@ function clean(node) {
       {
         clean(child);
       }}}
-function depura(valor,nombre,id) {
+function depura(id) {
     let es=true;
+    id_v=document.getElementById(id);
+    if (id_v.value=="") {
+      es=false;
+      document.getElementById(id).parentElement.style='border: 1px solid red';
+    }
     return es;
 }
 function loadDoc(pag,datos,cFunction) {
@@ -49,5 +54,19 @@ function loadDoc(pag,datos,cFunction) {
         }
     }
     xhttp.open('POST',pag,true);
+    xhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhttp.send(datos);
     
+}
+function mostrar(xhttp) {
+  var resultado= document.getElementById('resultado_id');
+  var contenido= JSON.parse(xhttp.responseText);
+
+  resultado.innerHTML= `<h1>${contenido.resultado}</h1>`;
+}
+function limpiarastros(){
+  divs=document.getElementsByClassName('error');
+  for (let i  = 0; i < divs.length; i++) {
+   divs[i].style="border-style: none";
+  }
 }

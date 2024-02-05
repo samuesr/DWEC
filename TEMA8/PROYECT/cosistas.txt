@@ -1,0 +1,2 @@
+Usar keydown para activar el filtro de tareas
+en una misma vista opciones d einsaercion, eliminacion y actulaización.(single page para usar ajax).

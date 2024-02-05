@@ -3,7 +3,7 @@
 define("DB_HOST","localhost");
 define ("DB_NAME","p4bd");
 define("DB_USER","root");
-define("DB_PASSWORD", "");
+define("DB_PASSWORD", "root");
 
 class db {
     private $host;

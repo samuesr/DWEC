@@ -1,0 +1,19 @@
+.cuadrado{
+    background-color: #00aaaa;
+    height: 100px;
+    width: 100px;
+    margin: 120px;
+    cursor: pointer;
+    box-shadow: 2px,3px,2px rgba(0, 0, 0, 0.39);
+    border-radius: 2px;
+    transition: all .5s;
+}
+.tooltip{
+    position: absolute;
+    width: 100px;
+    line-height: 50px;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    z-index: 100;
+}
